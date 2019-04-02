@@ -1,4 +1,5 @@
 const fs = require('fs');
+const colors = require('colors');
 
 let listadoPorHacer = [];
 
@@ -8,7 +9,7 @@ const guardarData = () => {
 
     const data = new Uint8Array(Buffer.from(dataJson));
     fs.writeFile(`data/data.json`, data, (err) => {
-        if (err) throw new Error('No se pudo grabar', err);
+        if (err) throw new Error('No se pudo grabar'.red, err);
 
     });
 }
@@ -22,6 +23,13 @@ const cargaData = () => {
         listadoPorHacer = [];
     }
 
+
+}
+
+const getListado = () => {
+
+    cargaData();
+    return listadoPorHacer;
 
 }
 
@@ -42,5 +50,6 @@ const crear = (descripcion) => {
 }
 
 module.exports = {
-    crear
+    crear,
+    getListado
 }
