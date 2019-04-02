@@ -14,7 +14,8 @@ const opts = {
 const argv = require('yargs')
     .command('listar', 'Imprime en consola las taras por realizar')
     .command('crear', 'agrega una en tarea ', opts)
-    .command('actializazr', 'Actualiza la tarea como completada', opts)
+    .command('actualizar', 'Actualiza la tarea como completada', opts)
+    .command('borrar', 'borra la tarea selecionada', opts)
     .help()
     .argv;
 

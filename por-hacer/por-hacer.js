@@ -33,6 +33,40 @@ const getListado = () => {
 
 }
 
+const actualizar = (descripcion, completado = true) => {
+    cargaData();
+
+    let nuevoListado = listadoPorHacer.filter(tarea => tarea.descripcion === descripcion)
+
+
+    if (index >= 0) {
+        listadoPorHacer[index].completado = completado;
+        guardarData();
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
+const borrar = (descripcion) => {
+
+    cargaData();
+
+    let nuevoListado = listadoPorHacer.filter(tarea => tarea.descripcion !== descripcion);
+
+
+    if (listadoPorHacer.length === nuevoListado.length) {
+        return false;
+    } else {
+        listadoPorHacer = nuevoListado;
+        guardarData();
+        return true;
+    }
+
+
+}
+
 const crear = (descripcion) => {
 
     cargaData();
@@ -51,5 +85,7 @@ const crear = (descripcion) => {
 
 module.exports = {
     crear,
-    getListado
+    getListado,
+    actualizar,
+    borrar
 }

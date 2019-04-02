@@ -16,14 +16,19 @@ switch (comando) {
 
         for (let tarea of listadeTareas) {
             console.log('======================'.white);
-            console.log(`${tarea.descripcion}`.cyan);
-            console.log('Estado'.white, ` ${tarea.completado}`.cyan);
+            console.log('Tarea:'.white, `${tarea.descripcion}`.cyan);
+            console.log('Estado:'.white, `${tarea.completado}`.cyan);
             console.log('======================='.white);
         }
 
         break;
     case 'actualizar':
-        console.log('actualizar tarea');
+        let actualizado = porHacer.actualizar(argv.descripcion, argv.completado);
+        console.log(actualizado);
+        break;
+    case 'borrar':
+        let borrado = porHacer.borrar(argv.descripcion);
+        console.log(borrado);
         break;
 
     default:
