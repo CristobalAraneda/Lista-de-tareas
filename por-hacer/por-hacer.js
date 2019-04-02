@@ -13,7 +13,21 @@ const guardarData = () => {
     });
 }
 
+const cargaData = () => {
+
+    try {
+        listadoPorHacer = require('../data/data.json');
+
+    } catch (error) {
+        listadoPorHacer = [];
+    }
+
+
+}
+
 const crear = (descripcion) => {
+
+    cargaData();
 
     let porHacer = {
         descripcion,
